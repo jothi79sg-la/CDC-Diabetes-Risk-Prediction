@@ -231,11 +231,105 @@ The four models were compared:
 
    **XGBoost**
 
+   <img width="611" height="293" alt="image" src="https://github.com/user-attachments/assets/d28692e2-45c0-4c8c-a924-8843cde03bb7" />
+   
+ **Evaluation Metrics:**
+ 
 The four models were evaluated using the same selected Random Oversampling strategy and the same evaluation metrics.
 
 <img width="427" height="140" alt="image" src="https://github.com/user-attachments/assets/6401a6b1-d68d-4a25-b83a-7e913507067c" />
 
-<img width="611" height="293" alt="image" src="https://github.com/user-attachments/assets/d28692e2-45c0-4c8c-a924-8843cde03bb7" />
+**Machine Learning Workflow:**
 
+<img width="276" height="331" alt="image" src="https://github.com/user-attachments/assets/17af71bb-0cae-4b60-bcbe-273e040351d2" />
 
+**12. Feature Importance:** 
+
+Feature-importance analysis identifies the variables that contribute most to the XGBoost model's predictions.
+
+**Top 10 XGBoost Importance:**
+
+<img width="508" height="291" alt="image" src="https://github.com/user-attachments/assets/61611ade-8527-4538-92ac-87a8c35e0926" />
+
+BMI is the dominant feature, with an importance score of 0.5299.
+
+PhysHlth is the second most important feature (0.1091).
+
+Smoker, Age and HighBP are also among the leading predictors.
+
+The remaining top features contribute smaller but measurable importance.
+
+The model therefore relies on a combination of physical health, demographic, and behavioural factors.
+
+**Top 10 Permutation Feature Importance:**
+
+<img width="400" height="296" alt="image" src="https://github.com/user-attachments/assets/e0faff20-6152-45c2-9080-50d451a986bf" />
+
+GenHlth had the highest permutation importance (0.0374). 
+
+BMI (0.0295) and Age (0.0235) were the next most influential features. 
+
+HighBP and HighChol also contributed to model performance. 
+
+Shuffling these features caused a greater reduction in predictive performance. 
+
+The ranking provides a complementary view of feature importance beyond the XGBoost built-in importance.
+
+**13. SHAP Explainability:**
+
+** Global SHAP Feature Importance:**
+
+<img width="378" height="272" alt="image" src="https://github.com/user-attachments/assets/7a7cac7a-c30f-43d8-8bb1-2dbfc36e6302" />
+
+Stroke: strongest average contribution, so its value can substantially alter predicted probability.
+
+PhysHlth: second strongest; variation in physical-health status contributes strongly to prediction.
+
+BMI and Age: important signals that materially influence model output.
+
+**SHAP Beeswarm Plot:**
+
+<img width="371" height="235" alt="image" src="https://github.com/user-attachments/assets/5863e69d-5935-4ddd-aa6e-092eae8557cf" />
+
+Stroke, PhysHlth, BMI and Age have the largest overall effects.
+
+Higher PhysHlth values are predominantly on the positive side, while lower values appear more on the negative side.
+
+Higher BMI and Age values generally appear more toward the positive SHAP side.
+
+HighBP and Smoker also show noticeable positive contributions for higher feature values in this model.
+
+**14. Business Insights:**
+
+The analysis indicates that **BMI, physical health, general health,blood pressure, age and lifestyle factors** are important signals in predicting the Prediabetes/Diabetes target class.
+
+  **Healthy Weight & Physical Activity:** Support preventive programmes focused on healthy weight and physical activity.
+ 
+  **Overall Health:** Consider general and physical health when prioritising individuals for further screening.
+   
+  **Cardiometabolic Health:** Include blood-pressure monitoring in preventive health initiatives.
+  
+  **Lifestyle:** Strengthen lifestyle-support initiatives such as smoking-cessation programmes.
+  
+  **Holistic Screening:** Use multiple health and demographic indicators rather than relying on a single risk factor.
+
+  These are model-based associations, **not clinical diagnoses or evidence**.
+
+**15. Recommendations:**
+       
+  **Targeted Screening:** Use the model to help prioritise individuals who may benefit from further diabetes screening and            professional assessment.
+
+  **Healthy Lifestyle:** Strengthen preventive programmes focused on healthy weight, physical activity and nutrition.
+
+  **Cardiometabolic Health:** Encourage appropriate blood-pressure monitoring and broader preventive health checks.
+
+  **Lifestyle Risk Reduction:** Support smoking cessation and other healthy lifestyle initiatives where appropriate.
+
+  **Holistic Assessment:** Consider multiple factors such as BMI, physical health, general health, age, blood pressure and lifestyle rather than relying on a single indicator.
+
+  **Explainable Decision Support:** Use XGBoost and SHAP to support transparent screening prioritisation, while keeping healthcare professionals involved in final decisions.
+
+  **Clinical Validation:** Further validate the model on appropriate new populations before considering real-world healthcare deployment.
+
+  **Overall Recommendation:** Combine data-driven screening prioritisation with preventive healthcare and professional clinical assessment rather than using the model as a standalone diagnostic tool.
 
